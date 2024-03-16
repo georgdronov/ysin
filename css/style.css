@@ -1,0 +1,168 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  background-color: #3655a2;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .header__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  max-width: 400px;
+}
+header .contact-info {
+  display: flex;
+  align-items: center;
+}
+header .contact-info a {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: "Nunito", sans-serif;
+  margin-right: 10px; /* Небольшой отступ между иконкой и текстом ссылки */
+  color: white;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+}
+header .contact-info a:hover {
+  color: #cccccc;
+}
+header .contact-info a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: white;
+  width: 0;
+  transition: width 0.3s ease;
+}
+header .contact-info a:hover::after {
+  width: 100%;
+}
+header .contact-info a i {
+  margin-right: 5px; /* Отступ между иконкой и текстом */
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #3655a2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  cursor: grab;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel-title-h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 32px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Располагаем контент в карточке вертикально */
+  height: 100%; /* Карточка занимает всю доступную высоту */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-description {
+  margin-bottom: 10px;
+  flex-grow: 1; /* Растягиваем описание товара, чтобы занимало все доступное пространство */
+  margin-bottom: 10px;
+}
+
+.product-card img {
+  width: 340px;
+  height: 275px;
+}
+@media (max-width:768px) {
+  .product-card img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+section.carousel-section {
+  margin-top: 2rem;
+}
+
+.swiper-wrapper {
+  padding-bottom: 6px;
+}
+
+.mfp-counter {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

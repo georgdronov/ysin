@@ -1,0 +1,192 @@
+// Переменные
+$primary-color: #3655a2;
+$white: white;
+$font-family-heading: "Nunito", sans-serif; // Шрифт заголовков
+$font-family-body: "Nunito", sans-serif; // Шрифт текста
+
+//breakpoints
+$br1024: "max-width:1024px";
+$br768: "max-width:768px";
+
+// Подключение шрифтов
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+// Стили для основного контейнера
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // Для растяжения на всю высоту страницы
+    font-family: $font-family-body; // Применение шрифта к тексту
+}
+
+// Стили для хедера
+header {
+    background-color: $primary-color;
+    color: $white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: $font-family-heading; // Применение шрифта к заголовкам
+        max-width: 400px;
+    }
+
+    .contact-info {
+        display: flex;
+        align-items: center;
+
+        a {
+            margin-right: 10px; // Отступ между элементами в строке контактной информации
+            color: $white; // Цвет иконок
+            text-decoration: none; // Убираем подчеркивание
+            display: flex;
+            align-items: center;
+            position: relative; // Позиционируем относительно ссылки
+            transition: color 0.3s ease; // Анимация изменения цвета текста
+            font-family: $font-family-body; // Применение шрифта к тексту
+            margin-right: 10px; /* Небольшой отступ между иконкой и текстом ссылки */
+            color: $white;
+            text-decoration: none;
+            font-family: $font-family-body;
+
+            &:hover {
+                color: darken($white, 20%); // Затемненный цвет при наведении
+            }
+
+            &::after {
+                content: "";
+                position: absolute; // Позиционирование абсолютно
+                left: 0; // Начальное положение левого края подчеркивания
+                bottom: -2px; // Располагаем подчеркивание чуть ниже текста ссылки
+                height: 2px; // Толщина подчеркивания
+                background-color: $white; // Цвет подчеркивания
+                width: 0; // Начальная ширина подчеркивания
+                transition: width 0.3s ease; // Анимация изменения ширины
+            }
+
+            &:hover::after {
+                width: 100%; // Увеличиваем ширину подчеркивания при наведении
+            }
+
+            & i {
+                margin-right: 5px; /* Отступ между иконкой и текстом */
+            }
+        }
+    }
+}
+
+// Стили для контейнера основного содержимого
+main {
+    flex: 1; // Растягивает содержимое на всю оставшуюся высоту
+}
+
+// Стили для футера
+footer {
+    background-color: $primary-color;
+    color: $white;
+    padding: 20px;
+    text-align: center;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family:
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden; // Скрываем содержимое, которое выходит за границы карточки
+    align-items: center;
+    cursor: grab;
+    padding: 20px; // Добавляем внутренние отступы для карточки
+    border-radius: 10px; // Добавляем скругленные углы для карточки
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Добавляем тень для карточки
+    transition: transform 0.3s ease; // Анимация при наведении
+    background-color: $white; // Устанавливаем белый цвет фона для карточки
+}
+
+.swiper-slide:hover {
+    transform: scale(1.05); // Увеличиваем размер карточки при наведении
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-title-h1 {
+    text-align: center; // Центрируем текст заголовка
+    margin-bottom: 1rem;
+    font-size: 32px;
+}
+
+.container {
+    width: 90%; // Выберите ширину контейнера, которая подходит для вашего дизайна
+    max-width: 1200px; // Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах
+    margin: 0 auto; // Центрируем контейнер по горизонтали
+}
+
+.product-card {
+    margin-bottom: 20px; // Добавляем отступ между карточками товаров
+    display: flex;
+    flex-direction: column; /* Располагаем контент в карточке вертикально */
+    height: 100%; /* Карточка занимает всю доступную высоту */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-description {
+    margin-bottom: 10px;
+    flex-grow: 1; /* Растягиваем описание товара, чтобы занимало все доступное пространство */
+    margin-bottom: 10px; // Добавляем отступ между абзацами описания
+}
+
+.product-card img {
+    width: 340px;
+    height: 275px;
+
+    @media ($br768) {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+section.carousel-section {
+    margin-top: 2rem;
+}
+
+.swiper-wrapper {
+    padding-bottom: 6px;
+}
+
+.mfp-counter{
+    display: none;
+}
