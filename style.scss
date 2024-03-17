@@ -1,5 +1,6 @@
 // Переменные
 $primary-color: #3655a2;
+$primary-color-hover: #28407a;
 $white: white;
 $font-family-heading: "Nunito", sans-serif; // Шрифт заголовков
 $font-family-body: "Nunito", sans-serif; // Шрифт текста
@@ -360,4 +361,24 @@ input:focus {
 
 ._dn {
     display: none;
+}
+
+/* Применяем стили к скроллбару */
+::-webkit-scrollbar {
+    width: 10px; /* Ширина скроллбара */
+}
+
+/* Применяем стили к треку (фону) скроллбара */
+::-webkit-scrollbar-track {
+    background: $white; /* Основной цвет */
+}
+
+/* Применяем стили к ползунку скроллбара */
+::-webkit-scrollbar-thumb {
+    background: $primary-color; /* Цвет ползунка */
+}
+
+/* Применяем стили к ползунку скроллбара при наведении */
+::-webkit-scrollbar-thumb:hover {
+    background: $primary-color-hover; /* Цвет ползунка при наведении */
 }

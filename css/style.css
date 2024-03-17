@@ -333,4 +333,24 @@ input:focus {
 
 ._dn {
   display: none;
+}
+
+/* Применяем стили к скроллбару */
+::-webkit-scrollbar {
+  width: 10px; /* Ширина скроллбара */
+}
+
+/* Применяем стили к треку (фону) скроллбара */
+::-webkit-scrollbar-track {
+  background: white; /* Основной цвет */
+}
+
+/* Применяем стили к ползунку скроллбара */
+::-webkit-scrollbar-thumb {
+  background: #3655a2; /* Цвет ползунка */
+}
+
+/* Применяем стили к ползунку скроллбара при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: #28407a; /* Цвет ползунка при наведении */
 }/*# sourceMappingURL=style.css.map */
