@@ -178,6 +178,10 @@ body {
 .container-main {
     background-color: white;
     padding: 1rem;
+
+    @media ($br768) {
+        width: 100%;
+    }
 }
 
 .product-card {
