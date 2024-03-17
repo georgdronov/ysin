@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -37,7 +38,7 @@
         </div>
     </header>
     <main>
-        <div class="container">
+        <div class="container container-main">
             <section class="carousel-section">
                 <div class="swiper mySwiper">
                     <h1 class="carousel-title-h1">Мы являемся производителями:</h1>
@@ -133,9 +134,54 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </section>
+            <section class="contact-section">
+                <div class="container">
+                    <h2 class="form-title">Свяжитесь с нами</h2>
+                    <p class="form-subtitle">Чтобы узнать цену или получить бесплатный пробник, оставьте свои
+                        контакты.<br> Наш
+                        менеджер свяжется с вами в ближайшее время</p>
+                    <form id="contact-form" class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ф.И.О." required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Отправить</button>
+                    </form>
+                </div>
+            </section>
+            <section class="delivery-section">
+                <div class="container">
+                    <h2 class="section-title">По поводу доставки</h2>
+                    <p class="section-text">
+                        С нами сотрудничают все транспортные компании, такие как <strong>Деловые Линии</strong>,
+                        <strong>Сдэк</strong>,
+                        <strong>ПЭК</strong> и другие, сможем рассчитать доставку по минимальным ценам.
+                        Поможем найти отдельную машину по более выгодным ценам для Вас.
+                        Самовывоз.
+                    </p>
+                    <p class="section-highlight">Предоставляем бесплатные образцы.</p>
+
+                    <div class="contact-info _dn">
+                        <a href="tel:+79291003154" class="contact-link phone"><i class="fas fa-phone-alt"></i> +7 (929) 100-31-54</a>
+                        <a href="mailto:info@ysinru.ru" class="contact-link email"><i class="far fa-envelope"></i> info@ysinru.ru</a>
+                    </div>
+
+                </div>
+            </section>
+
+
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; Ysin 2024</p>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 

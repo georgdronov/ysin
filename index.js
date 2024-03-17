@@ -45,3 +45,36 @@ $(document).ready(function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('focus', function () {
+        var currentValue = this.value.replace(/\D/g, '');
+        if (currentValue.length === 0) {
+            this.value = '+7 (';
+        }
+    });
+    phoneInput.addEventListener('input', function () {
+        var x = this.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+        this.value = !x[2] ? x[1] : '+' + x[1] + ' (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+    });
+});
+
+// email JS
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(function (response) {
+                console.log('Письмо успешно отправлено!', response.status, response.text);
+                alert('Письмо успешно отправлено!');
+                form.reset(); // Очистить форму после успешной отправки
+            }, function (error) {
+                console.error('Ошибка при отправке письма:', error);
+                alert('Ошибка при отправке письма!');
+            });
+    });
+});

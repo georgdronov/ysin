@@ -5,6 +5,7 @@ $font-family-heading: "Nunito", sans-serif; // Шрифт заголовков
 $font-family-body: "Nunito", sans-serif; // Шрифт текста
 
 //breakpoints
+$br1219: "max-width:1219px";
 $br1024: "max-width:1024px";
 $br768: "max-width:768px";
 
@@ -27,6 +28,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Чтобы хедер находился выше остального контента */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для хедера */
 
     .header__items {
         display: flex;
@@ -88,6 +95,7 @@ header {
 // Стили для контейнера основного содержимого
 main {
     flex: 1; // Растягивает содержимое на всю оставшуюся высоту
+    margin-top: 70px;
 }
 
 // Стили для футера
@@ -96,6 +104,22 @@ footer {
     color: $white;
     padding: 20px;
     text-align: center;
+}
+
+footer {
+    background-color: #3655a2;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+
+    .copyright {
+        color: #fff;
+        font-size: 16px;
+
+        i {
+            margin-right: 5px;
+        }
+    }
 }
 
 html,
@@ -111,7 +135,7 @@ body {
         Helvetica,
         Arial,
         sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #000;
     margin: 0;
     padding: 0;
@@ -126,13 +150,9 @@ body {
     cursor: grab;
     padding: 20px; // Добавляем внутренние отступы для карточки
     border-radius: 10px; // Добавляем скругленные углы для карточки
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Добавляем тень для карточки
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); // Увеличиваем тень для слайда
     transition: transform 0.3s ease; // Анимация при наведении
     background-color: $white; // Устанавливаем белый цвет фона для карточки
-}
-
-.swiper-slide:hover {
-    transform: scale(1.05); // Увеличиваем размер карточки при наведении
 }
 
 .swiper-slide img {
@@ -154,6 +174,11 @@ body {
     margin: 0 auto; // Центрируем контейнер по горизонтали
 }
 
+.container-main {
+    background-color: white;
+    padding: 1rem;
+}
+
 .product-card {
     margin-bottom: 20px; // Добавляем отступ между карточками товаров
     display: flex;
@@ -173,6 +198,11 @@ body {
     width: 340px;
     height: 275px;
 
+    @media ($br1219) {
+        width: 340px;
+        height: auto;
+    }
+
     @media ($br768) {
         width: 100%;
         height: 100%;
@@ -182,11 +212,152 @@ body {
 section.carousel-section {
     margin-top: 2rem;
 }
-
-.swiper-wrapper {
-    padding-bottom: 6px;
+.swiper {
+    padding: 0 1rem !important;
 }
 
-.mfp-counter{
+.swiper-wrapper {
+    padding-bottom: 36px;
+}
+
+.mfp-counter {
+    display: none;
+}
+@media (max-width: 768px) {
+    .contact-info a {
+        font-size: 0; /* Скрываем текст ссылок в мобильной версии */
+    }
+
+    .contact-info a i {
+        font-size: 24px; /* Устанавливаем размер значков */
+    }
+}
+
+.contact-section {
+    margin-top: 1rem;
+    padding: 50px 0;
+}
+
+.contact-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-submit {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+.btn-submit:hover {
+    background-color: #2e468f;
+}
+
+input:focus {
+    border-color: $primary-color; /* Изменяем цвет обводки при фокусе */
+    box-shadow: 0 0 5px $primary-color; /* Добавляем тень при фокусе */
+    outline: none; /* Убираем стандартный контур фокуса */
+}
+
+.delivery-section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; // Центрируем заголовок
+}
+
+.section-text {
+    margin-bottom: 20px;
+}
+
+.section-highlight {
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phone,
+.email {
+    font-size: 16px;
+}
+
+.contact-link {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+.contact-link::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0; /* Изменено с right на left */
+    width: 0%;
+    height: 2px;
+    background-color: #000; /* черный цвет */
+    visibility: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+.contact-link:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.contact-link.phone::before {
+    background-color: #fff; /* белый цвет */
+}
+
+.contact-link.phone:hover::before {
+    background-color: #000; /* черный цвет при наведении */
+}
+
+._dn {
     display: none;
 }
