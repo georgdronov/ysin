@@ -146,7 +146,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    overflow: hidden; // Скрываем содержимое, которое выходит за границы карточки
+    // overflow: hidden; // Скрываем содержимое, которое выходит за границы карточки
     align-items: center;
     cursor: grab;
     padding: 20px; // Добавляем внутренние отступы для карточки
@@ -170,9 +170,11 @@ body {
 }
 
 .container {
-    width: 90%; // Выберите ширину контейнера, которая подходит для вашего дизайна
-    max-width: 1200px; // Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах
-    margin: 0 auto; // Центрируем контейнер по горизонтали
+    width: 90%; /* Выберите ширину контейнера, которая подходит для вашего дизайна */
+    max-width: 1200px; /* Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    padding: 0 15px; /* Добавляем отступы слева и справа для лучшего визуального разделения контента */
+    box-sizing: border-box; /* Учитываем padding в общей ширине контейнера */
 }
 
 .container-main {
@@ -218,7 +220,7 @@ section.carousel-section {
     margin-top: 2rem;
 }
 .swiper {
-    padding: 0 1rem !important;
+    padding: 0 1.125rem !important;
 }
 
 .swiper-wrapper {
@@ -386,3 +388,5 @@ input:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: $primary-color-hover; /* Цвет ползунка при наведении */
 }
+
+

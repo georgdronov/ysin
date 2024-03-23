@@ -115,7 +115,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  overflow: hidden;
   align-items: center;
   cursor: grab;
   padding: 20px;
@@ -140,9 +139,11 @@ body {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 90%; /* Выберите ширину контейнера, которая подходит для вашего дизайна */
+  max-width: 1200px; /* Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах */
+  margin: 0 auto; /* Центрируем контейнер по горизонтали */
+  padding: 0 15px; /* Добавляем отступы слева и справа для лучшего визуального разделения контента */
+  box-sizing: border-box; /* Учитываем padding в общей ширине контейнера */
 }
 
 .container-main {
@@ -192,7 +193,7 @@ section.carousel-section {
 }
 
 .swiper {
-  padding: 0 1rem !important;
+  padding: 0 1.125rem !important;
 }
 
 .swiper-wrapper {
