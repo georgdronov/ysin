@@ -153,7 +153,7 @@
                     <p class="form-subtitle">Чтобы узнать цену или получить бесплатный пробник, оставьте свои
                         контакты.<br> Наш
                         менеджер свяжется с вами в ближайшее время</p>
-                    <form id="contact-form" class="contact-form" action="send_form.php" method="POST">
+                    <form id="contact-form" class="contact-form" action="send_email.php" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Ф.И.О." required>
                         </div>
@@ -165,6 +165,16 @@
                         </div>
                         <button type="submit" class="btn-submit">Отправить</button>
                     </form>
+
+                    <!-- Попап для успешной отправки -->
+                    <div id="success-popup" class="popup">
+                        <p>Ваша заявка успешно отправлена!</p>
+                    </div>
+
+                    <!-- Попап для ошибки -->
+                    <div id="error-popup" class="popup">
+                        <p>Что-то пошло не так. Пожалуйста, попробуйте еще раз.</p>
+                    </div>
                 </div>
             </section>
             <section class="delivery-section">
