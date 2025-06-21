@@ -1,12 +1,48 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+/* ====================================================================== */
+/* 1. Общие стили для HTML и Body */
+/* ====================================================================== */
+html,
 body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  color: #333; /* Основной цвет текста */
+  line-height: 1.6;
+  background-color: #f0f2f5; /* Легкий серый фон для всего сайта */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Nunito", sans-serif;
+  box-sizing: border-box; /* Учитываем padding и border в общей ширине/высоте элементов */
+  -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для лучшей читаемости */
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ====================================================================== */
+/* 2. Контейнеры и общие элементы макета */
+/* ====================================================================== */
+.container {
+  width: 90%; /* Выберите ширину контейнера, которая подходит для вашего дизайна */
+  max-width: 1200px; /* Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах */
+  margin: 0 auto; /* Центрируем контейнер по горизонтали */
+  padding: 0 20px; /* Добавим небольшой отступ по бокам */
+  box-sizing: border-box; /* Учитываем padding в общей ширине контейнера */
+}
+
+.container-main {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Легкая тень для основного контента */
+  border-radius: 8px; /* Скругленные углы */
+}
+
+/* ====================================================================== */
+/* 3. Хедер (шапка сайта) */
+/* ====================================================================== */
 header {
   background-color: #3655a2;
   color: white;
@@ -20,23 +56,28 @@ header {
   z-index: 1000; /* Чтобы хедер находился выше остального контента */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для хедера */
 }
+
 header .header__items {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%; /* Занимаем всю доступную ширину для распределения элементов */
 }
+
 header .logo {
-  font-size: 24px;
+  font-size: 28px; /* Немного увеличен, чтобы лучше смотрелся */
   font-weight: bold;
   font-family: "Nunito", sans-serif;
   max-width: 400px;
 }
+
 header .contact-info {
   display: flex;
   align-items: center;
+  gap: 20px; /* Отступ между ссылками */
 }
+
 header .contact-info a {
-  margin-right: 10px;
   color: white;
   text-decoration: none;
   display: flex;
@@ -44,14 +85,12 @@ header .contact-info a {
   position: relative;
   transition: color 0.3s ease;
   font-family: "Nunito", sans-serif;
-  margin-right: 10px; /* Небольшой отступ между иконкой и текстом ссылки */
-  color: white;
-  text-decoration: none;
-  font-family: "Nunito", sans-serif;
 }
+
 header .contact-info a:hover {
   color: #cccccc;
 }
+
 header .contact-info a::after {
   content: "";
   position: absolute;
@@ -62,173 +101,181 @@ header .contact-info a::after {
   width: 0;
   transition: width 0.3s ease;
 }
+
 header .contact-info a:hover::after {
   width: 100%;
 }
+
 header .contact-info a i {
-  margin-right: 5px; /* Отступ между иконкой и текстом */
+  margin-right: 8px; /* Отступ между иконкой и текстом */
 }
 
+/* ====================================================================== */
+/* 4. Главное содержимое (main) */
+/* ====================================================================== */
 main {
-  flex: 1;
-  margin-top: 70px;
+  flex: 1; /* Позволяет main занимать все доступное пространство между хедером и футером */
+  margin-top: 70px; /* Отступ, чтобы контент не перекрывался фиксированным хедером */
+  padding-bottom: 30px; /* Уменьшил дополнительный отступ снизу перед футером */
 }
 
-footer {
-  background-color: #3655a2;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
+/* ====================================================================== */
+/* 5. Футер (подвал сайта) */
+/* ====================================================================== */
 footer {
   background-color: #3655a2;
   color: #fff;
   text-align: center;
   padding: 20px 0;
 }
+
 footer .copyright {
   color: #fff;
   font-size: 16px;
 }
+
 footer .copyright i {
   margin-right: 5px;
 }
 
-html,
-body {
-  position: relative;
-  height: 100%;
+/* ====================================================================== */
+/* 6. Общие стили для секций и текста */
+/* ====================================================================== */
+/* Базовые стили для секций, которые можно переопределять */
+.section-common-styles {
+  padding: 60px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px; /* Базовый отступ между секциями */
 }
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
-
-.swiper-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  align-items: center;
-  cursor: grab;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  background-color: white;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.carousel-title-h1 {
+.section-title {
+  font-size: 3em; /* Увеличенный размер для большей выразительности */
+  color: #2c3e50; /* Темный, насыщенный цвет для заголовков */
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 32px;
-}
-
-.container {
-  width: 90%; /* Выберите ширину контейнера, которая подходит для вашего дизайна */
-  max-width: 1200px; /* Максимальная ширина контейнера, чтобы контент не растягивался на широких экранах */
-  margin: 0 auto; /* Центрируем контейнер по горизонтали */
-  box-sizing: border-box; /* Учитываем padding в общей ширине контейнера */
-}
-
-.container-main {
-  background-color: white;
-  padding: 1rem;
-}
-@media (max-width:768px) {
-  .container-main {
-    width: 100%;
-  }
-}
-
-.product-card {
   margin-bottom: 20px;
+  font-weight: 700; /* Жирный шрифт */
+}
+
+.section-subtitle {
+  font-size: 1.2em;
+  color: #7f8c8d; /* Мягкий серый для подзаголовков */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-text {
+  font-size: 1.1em;
+  color: #555;
+  text-align: center;
+  line-height: 1.7;
+  max-width: 800px; /* Ограничим ширину для лучшей читаемости */
+  margin: 0 auto 25px auto;
+}
+
+.section-text strong {
+  color: #2c3e50; /* Выделение жирного текста */
+  font-weight: 700;
+}
+
+.section-highlight {
+  font-size: 1.4em;
+  color: #27ae60; /* Яркий цвет для выделения, например, зеленый */
+  text-align: center;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+/* ====================================================================== */
+/* 7. Стили для секции "О нас" (About Section) */
+/* ====================================================================== */
+.about-section {
+  padding: 60px 0; /* Уменьшил padding */
+  background-color: #ffffff; /* Белый фон для секции */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Легкая тень для секции */
+  margin-bottom: 30px; /* Отступ между секциями */
+}
+
+.about-cards {
   display: flex;
-  flex-direction: column; /* Располагаем контент в карточке вертикально */
-  height: 100%; /* Карточка занимает всю доступную высоту */
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Отступ между карточками */
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.product-description {
-  margin-bottom: 10px;
-  flex-grow: 1; /* Растягиваем описание товара, чтобы занимало все доступное пространство */
-  margin-bottom: 10px;
+.about-card {
+  flex: 1 1 calc(33.333% - 60px); /* 33.333% для трех карточек, -60px учитывает gap */
+  max-width: calc(33.333% - 60px); /* Ограничиваем максимальную ширину */
+  background-color: #fff; /* Белый фон карточки */
+  border: 1px solid #ddd; /* Рамка */
+  border-radius: 8px; /* Скругленные углы */
+  padding: 30px; /* Внутренние отступы */
+  text-align: center; /* Выравнивание содержимого по центру */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Красивая тень */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+  display: flex; /* Flexbox для содержимого карточки (иконка и текст) */
+  flex-direction: column; /* Элементы в колонку */
+  align-items: center; /* Выравнивание элементов по центру */
 }
 
-.product-card img {
-  width: 340px;
-  height: 275px;
-}
-@media (max-width:1219px) {
-  .product-card img {
-    width: 340px;
-    height: auto;
-  }
-}
-@media (max-width:768px) {
-  .product-card img {
-    width: 400px;
-    height: 300px;
-  }
+.about-card:hover {
+  transform: translateY(-5px); /* Небольшой подъем при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Усиление тени при наведении */
 }
 
-section.carousel-section {
-  margin-top: 2rem;
+/* Стили для иконок внутри about-card */
+.about-card i {
+  color: #3655a2; /* Цвет, соответствующий хедеру */
+  font-size: 60px; /* Размер иконок, чтобы они соответствовали прежним размерам изображений */
+  margin-bottom: 20px; /* Отступ под иконкой, чтобы текст не прилипал */
 }
 
-.swiper {
-  padding: 0 1.125rem !important;
+.about-card .card-text {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
 }
 
-.swiper-wrapper {
-  padding-bottom: 36px;
+.about-description {
+  font-size: 1.3em; /* Чуть крупнее шрифт */
+  color: #444;
+  text-align: center;
+  line-height: 1.7;
+  max-width: 900px; /* Ограничим ширину для лучшей читаемости */
+  margin: 0 auto; /* Центрируем */
 }
 
-.mfp-counter {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .contact-info a {
-    font-size: 0; /* Скрываем текст ссылок в мобильной версии */
-  }
-  .contact-info a i {
-    font-size: 24px; /* Устанавливаем размер значков */
-  }
-}
+/* ====================================================================== */
+/* 8. Стили для секции контактов (Contact Section) */
+/* ====================================================================== */
 .contact-section {
-  margin-top: 1rem;
-  padding: 50px 0;
+  margin-top: 30px; /* Уменьшил отступ от предыдущей секции */
+  padding: 50px 0; /* Уменьшил padding */
+  background-color: #ffffff; /* Белый фон */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px; /* Отступ */
 }
 
 .contact-section .container {
-  max-width: 800px;
+  max-width: 800px; /* Контейнер формы чуть уже */
   margin: 0 auto;
 }
 
 .form-title {
+  font-size: 2.5em; /* Чуть меньше чем main-title, но все еще заметный */
+  color: #2c3e50;
   text-align: center;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .form-subtitle {
+  font-size: 1.1em;
+  color: #7f8c8d;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .contact-form {
@@ -236,139 +283,183 @@ section.carousel-section {
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Мягкая тень */
   border-radius: 10px;
   padding: 30px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   width: 100%;
 }
 
 .contact-form input {
   width: 100%;
-  padding: 10px;
+  padding: 12px 15px; /* Увеличенный padding для лучшего внешнего вида */
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px; /* Скругленные углы */
+  font-size: 1em;
+  box-sizing: border-box; /* Важно для корректной ширины */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder {
+  color: #aaa;
+}
+
+.contact-form input:focus {
+  border-color: #3655a2; /* Изменяем цвет обводки при фокусе */
+  box-shadow: 0 0 8px rgba(54, 85, 162, 0.3); /* Добавляем тень при фокусе с прозрачностью */
+  outline: none; /* Убираем стандартный контур фокуса */
 }
 
 .btn-submit {
   background-color: #3655a2;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 25px; /* Увеличенный padding */
   border: none;
-  border-radius: 5px;
+  border-radius: 8px; /* Скругленные углы */
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px; /* Добавляем отступ сверху */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-submit:hover {
   background-color: #2e468f;
+  transform: translateY(-2px); /* Небольшой подъем при наведении */
 }
 
-input:focus {
-  border-color: #3655a2; /* Изменяем цвет обводки при фокусе */
-  box-shadow: 0 0 5px #3655a2; /* Добавляем тень при фокусе */
-  outline: none; /* Убираем стандартный контур фокуса */
-}
-
+/* ====================================================================== */
+/* 9. Стили для секции доставки (Delivery Section) */
+/* ====================================================================== */
 .delivery-section {
-  padding: 50px 0;
+  padding: 50px 0; /* Уменьшил padding */
+  background-color: #f0f2f5; /* Немного другой фон для контраста */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin-bottom: 30px; /* Отступ */
 }
 
-.section-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
+.delivery-section .section-title,
+.delivery-section .section-text,
+.delivery-section .section-highlight {
+  margin-bottom: 25px; /* Единый отступ для этих элементов в секции доставки */
 }
 
-.section-text {
-  margin-bottom: 20px;
-}
-
-.section-highlight {
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.contact-info {
+.delivery-section .contact-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Центрируем ссылки */
   align-items: center;
-}
-
-.phone,
-.email {
-  font-size: 16px;
+  flex-wrap: wrap; /* Для адаптивности */
+  gap: 30px; /* Отступ между контактами */
+  margin-top: 30px;
 }
 
 .contact-link {
   position: relative;
-  color: black;
+  color: #3655a2; /* Цвет ссылок в этой секции */
   text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
+.contact-link i {
+  margin-right: 10px;
+  font-size: 1.3em; /* Увеличим размер иконок */
+  color: #3655a2;
+}
+
+/* Эффект подчеркивания для ссылок в delivery-section */
 .contact-link::before {
   content: "";
   position: absolute;
   bottom: -2px;
-  left: 0; /* Изменено с right на left */
+  left: 0;
   width: 0%;
   height: 2px;
-  background-color: #000; /* черный цвет */
-  visibility: hidden;
+  background-color: #3655a2; /* Цвет подчеркивания */
   transition: width 0.3s ease-in-out;
 }
 
 .contact-link:hover::before {
-  visibility: visible;
   width: 100%;
 }
 
-.contact-link.phone::before {
-  background-color: #fff; /* белый цвет */
-}
-
-.contact-link.phone:hover::before {
-  background-color: #000; /* черный цвет при наведении */
-}
-
 ._dn {
-  display: none;
+  display: none !important; /* Убедимся, что скрывает элемент */
 }
 
-/* Применяем стили к скроллбару */
-::-webkit-scrollbar {
-  width: 10px; /* Ширина скроллбара */
+/* ====================================================================== */
+/* 10. Стили для Swiper (Carousel) */
+/* ====================================================================== */
+section.carousel-section {
+  margin-top: 30px; /* Отступ */
+  padding: 50px 0; /* Отступы для секции карусели */
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px; /* Отступ */
 }
 
-/* Применяем стили к треку (фону) скроллбара */
-::-webkit-scrollbar-track {
-  background: white; /* Основной цвет */
+.carousel-title-h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 3em; /* Соответствует section-title */
+  color: #2c3e50;
+  font-weight: 700;
 }
 
-/* Применяем стили к ползунку скроллбара */
-::-webkit-scrollbar-thumb {
-  background: #3655a2; /* Цвет ползунка */
+.swiper {
+  padding: 0 1.125rem !important; /* Ваши стили */
 }
 
-/* Применяем стили к ползунку скроллбара при наведении */
-::-webkit-scrollbar-thumb:hover {
-  background: #28407a; /* Цвет ползунка при наведении */
+.swiper-wrapper {
+  padding-bottom: 36px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto; /* Автоматическая высота */
+  align-items: center;
+  cursor: grab;
+  padding: 25px; /* Уменьшил padding, чтобы было больше места для контента */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Более мягкая тень */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-5px); /* Небольшой подъем при наведении */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Усиление тени */
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  max-width: 340px; /* Ограничил максимальную ширину */
+  height: auto; /* Автоматическая высота */
+  object-fit: cover;
+  margin-bottom: 15px; /* Отступ под изображением */
+  border-radius: 5px; /* Слегка скругленные углы у изображений */
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 42px;
-  height: 42px;
-  padding: 8px;
+  width: 48px; /* Увеличил размер кнопок */
+  height: 48px;
+  padding: 10px;
   border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  background-color: #3655a2; /* Цвет кнопок как хедер */
+  color: white; /* Цвет иконок в кнопках */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,23 +467,1361 @@ input:focus {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #2e468f;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important; /* Размер иконки стрелки */
+  color: white;
+}
+
+/* ====================================================================== */
+/* 11. Стили для карточек товаров (Product Card) - ОБЩИЕ для Swiper и других */
+/* ====================================================================== */
+.product-card {
+  margin-bottom: 20px; /* Отступ между карточками, если они не в Grid */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: stretch;
+  align-items: center;
+  text-align: center; /* Центрируем текст внутри карточки */
+}
+
+.product-description {
+  margin-bottom: 15px;
+  flex-grow: 1;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Примечание: height: 275px; может обрезать изображения, если они не того соотношения сторон.
+   Лучше использовать max-height или оставить height: auto; с object-fit. */
+.product-card img {
+  width: 100%; /* Картинка занимает 100% ширины родителя */
+  max-width: 340px; /* Ограничение из ваших стилей */
+  height: 275px; /* Фиксированная высота для единообразия */
+  object-fit: cover; /* Обрезает изображение, чтобы оно вписалось в заданные размеры */
+  border-radius: 5px;
+}
+
+/* ====================================================================== */
+/* 12. Попапы */
+/* ====================================================================== */
 .popup {
-  display: none;
+  display: none; /* Управляется JS */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85); /* Более темный фон */
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  z-index: 1000;
+  padding: 30px;
+  border-radius: 12px;
+  z-index: 2000; /* Выше чем хедер */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 0.3s ease-out; /* Анимация появления */
 }
 
 .popup p {
   margin: 0;
-  font-size: 18px;
-}/*# sourceMappingURL=style.css.map */
+  font-size: 20px; /* Чуть крупнее */
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ====================================================================== */
+/* 13. Скроллбар */
+/* ====================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f2f5; /* Цвет трека, соответствующий фону body */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3655a2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2e468f;
+}
+
+/* ====================================================================== */
+/* 14. Медиа-запросы для адаптивности - ОБЩИЕ */
+/* ====================================================================== */
+@media (max-width: 1219px) {
+  /* Стили для средних десктопов и больших планшетов */
+  /* Если .product-card img находится в секции, где нет grid,
+       может потребоваться изменение высоты. */
+  .product-card img {
+    height: auto; /* Позволяем высоте регулироваться автоматически */
+  }
+}
+
+@media (max-width: 992px) {
+  /* Планшеты */
+  .section-title {
+    font-size: 2.5em;
+  }
+  .section-subtitle,
+  .form-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 25px; /* Уменьшил отступ */
+  }
+  .section-text,
+  .about-description,
+  .product-description {
+    font-size: 1em;
+    margin-bottom: 20px; /* Уменьшил отступ */
+  }
+  .section-highlight {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Уменьшение отступов для секций на планшетах */
+  .about-section,
+  .contact-section,
+  .delivery-section,
+  .carousel-section,
+  .gallery-section,
+  .products-section,
+  .product-description-section {
+    padding: 50px 0;
+    margin-bottom: 25px;
+  }
+
+  .about-card {
+    flex: 1 1 calc(50% - 40px); /* 2 карточки в ряд */
+    max-width: calc(50% - 40px);
+  }
+  .about-cards {
+    margin-bottom: 25px;
+  }
+  .contact-form {
+    padding: 25px;
+  }
+  .contact-link {
+    font-size: 1.1em;
+  }
+  .swiper-slide {
+    padding: 20px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 18px !important;
+  }
+  .carousel-title-h1 {
+    margin-bottom: 25px;
+  }
+  .delivery-section .contact-info {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Мобильные устройства и маленькие планшеты */
+  header {
+    padding: 10px 15px;
+  }
+  header .logo {
+    font-size: 22px;
+  }
+  header .contact-info {
+    gap: 10px; /* Уменьшаем отступ между иконками */
+  }
+  header .contact-info a {
+    font-size: 0; /* Скрываем текст ссылок */
+  }
+  header .contact-info a i {
+    font-size: 24px; /* Устанавливаем размер значков */
+    margin-right: 0; /* Убираем отступ */
+  }
+  header .contact-info a::after {
+    display: none; /* Убираем подчеркивание */
+  }
+
+  main {
+    margin-top: 60px; /* Коррекция отступа для мобильного хедера */
+  }
+
+  .container-main {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  /* Уменьшение отступов для секций на мобильных */
+  .about-section,
+  .contact-section,
+  .delivery-section,
+  .carousel-section,
+  .gallery-section,
+  .products-section,
+  .product-description-section {
+    padding: 40px 0;
+    margin-bottom: 20px;
+  }
+
+  .section-title,
+  .carousel-title-h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  .section-subtitle,
+  .form-subtitle {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  .section-text,
+  .about-description {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+  }
+  .section-highlight {
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .about-card {
+    flex: 1 1 100%; /* 1 карточка в ряд */
+    max-width: 100%;
+    padding: 20px;
+  }
+  .about-cards {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+  .contact-form input {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+  .btn-submit {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+  .delivery-section .contact-info {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .contact-link {
+    font-size: 1.1em;
+  }
+  .contact-link i {
+    font-size: 1.2em;
+  }
+
+  .swiper-slide img {
+    height: auto; /* Автоматическая высота */
+    max-width: 400px; /* Из вашего предыдущего кода */
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Очень маленькие мобильные устройства */
+  /* Максимально компактные отступы для самых маленьких экранов */
+  .about-section,
+  .contact-section,
+  .delivery-section,
+  .carousel-section,
+  .gallery-section,
+  .products-section,
+  .product-description-section {
+    padding: 30px 0;
+    margin-bottom: 15px;
+  }
+
+  .section-title,
+  .carousel-title-h1 {
+    font-size: 1.6em; /* Еще уменьшил */
+  }
+  .section-subtitle,
+  .form-subtitle {
+    font-size: 0.8em; /* Еще уменьшил */
+    margin-bottom: 15px;
+  }
+  .about-description {
+    font-size: 0.9em; /* Еще уменьшил */
+  }
+  .about-card {
+    padding: 15px; /* Еще уменьшил */
+  }
+  .about-cards {
+    gap: 10px; /* Еще уменьшил отступ */
+  }
+  /* Заглушка для img, чтобы стили не ломались, если вдруг картинки вернутся */
+  .about-card img {
+    display: none; /* Скрываем, если используются иконки Font Awesome */
+    margin-bottom: 15px;
+  }
+  .contact-form {
+    padding: 15px;
+  }
+  .contact-form input {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+  .btn-submit {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+  .delivery-section .contact-info {
+    gap: 10px;
+  }
+  .contact-link {
+    font-size: 1em;
+  }
+  .contact-link i {
+    font-size: 1.1em;
+  }
+}
+
+/* ====================================================================== */
+/* 15. Стили для секции Галерея (Gallery Section) */
+/* ====================================================================== */
+.gallery-section {
+  padding: 60px 0;
+  background-color: #f8f8f8; /* Легкий фон для контраста */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Всегда 2 колонки */
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item a {
+  display: block;
+  line-height: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px; /* Фиксированная высота для единообразия */
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+  opacity: 0.9;
+}
+
+/* Медиа-запросы для адаптивности галереи */
+@media (max-width: 992px) {
+  .gallery-grid {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    gap: 15px;
+  }
+  .gallery-item img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item img {
+    height: 180px;
+  }
+}
+
+/* ====================================================================== */
+/* 16. Стили для секции Ассортимент продукции (Products Section) */
+/* ====================================================================== */
+.products-section {
+  padding: 60px 0;
+  background-color: #ffffff; /* Белый фон для секции */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: #f8f8f8; /* Светлый фон для карточки товара */
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-title {
+  font-size: 1.3em;
+  color: #3655a2;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.product-card-description {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* Медиа-запросы для адаптивности секции Ассортимент */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .product-card {
+    padding: 18px;
+  }
+  .product-card-title {
+    font-size: 1.2em;
+  }
+  .product-card-description {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 25px;
+  }
+  .product-card {
+    padding: 15px;
+  }
+  .product-card-title {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+  }
+  .product-card-description {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .product-card {
+    padding: 12px;
+  }
+  .product-card-title {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  .product-card-description {
+    font-size: 0.8em;
+  }
+}
+
+/* ====================================================================== */
+/* 17. Стили для секции "О нас" (About Us Section - с лабораториями) */
+/* ====================================================================== */
+.about-section-full {
+  /* Переименовал, чтобы не конфликтовало с .about-section из раздела 7 */
+  padding: 80px 0;
+  background-color: #3655a2; /* Темносиний фон, как на примере */
+  color: #ffffff; /* Белый текст */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-section-full .section-title {
+  color: #ffffff; /* Заголовок белый */
+  margin-bottom: 10px;
+}
+
+.about-section-full .section-subtitle {
+  font-size: 1.2em;
+  color: #e0e0e0;
+  margin-bottom: 50px;
+  max-width: 800px; /* Ограничим ширину подзаголовка */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.about-card-with-icon {
+  /* Переименовал, чтобы не конфликтовало с .about-card из раздела 7 */
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card-with-icon:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.about-card-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about-card-icon img {
+  width: 35px;
+  height: 35px;
+  /* Если изображения не цветные, этот фильтр может инвертировать цвета для синего оттенка */
+  filter: invert(27%) sepia(35%) saturate(1917%) hue-rotate(195deg)
+    brightness(98%) contrast(90%);
+}
+
+.about-card-text {
+  font-size: 1.15em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.about-competencies {
+  background-color: #2a4176;
+  border-radius: 10px;
+  padding: 35px;
+  margin-top: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.competencies-text {
+  font-size: 1.3em;
+  color: #ffffff;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Медиа-запросы для адаптивности секции "О нас" с лабораториями */
+@media (max-width: 992px) {
+  .about-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .about-section-full {
+    padding: 60px 0;
+    margin-bottom: 25px;
+  }
+  .about-card-with-icon {
+    padding: 25px;
+  }
+  .about-card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  .about-card-icon img {
+    width: 30px;
+    height: 30px;
+  }
+  .about-card-text {
+    font-size: 1.05em;
+  }
+  .about-competencies {
+    padding: 30px;
+    margin-top: 30px;
+  }
+  .competencies-text {
+    font-size: 1.15em;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  .about-section-full {
+    padding: 50px 0;
+    margin-bottom: 20px;
+  }
+  .about-card-with-icon {
+    padding: 20px;
+  }
+  .about-card-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 12px;
+  }
+  .about-card-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  .about-card-text {
+    font-size: 1em;
+  }
+  .about-competencies {
+    padding: 25px;
+    margin-top: 25px;
+  }
+  .competencies-text {
+    font-size: 1.05em;
+  }
+  .about-section-full .section-subtitle {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section-full {
+    padding: 40px 0;
+    margin-bottom: 15px;
+  }
+  .about-card-with-icon {
+    padding: 15px;
+  }
+  .about-card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .about-card-icon img {
+    width: 25px;
+    height: 25px;
+  }
+  .about-card-text {
+    font-size: 0.9em;
+  }
+  .about-competencies {
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .competencies-text {
+    font-size: 0.95em;
+  }
+}
+
+/* ====================================================================== */
+/* 18. Стили для секции Описание продукта (Product Description Section) */
+/* ====================================================================== */
+.product-description-section {
+  padding: 80px 0;
+  background-color: #f8f8f8; /* Легкий фон для секции */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Эффект треугольника на фоне, как на оригинальном изображении */
+.product-description-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 300px 300px 0;
+  border-color: transparent #3655a2 transparent transparent;
+  z-index: 0;
+}
+
+.product-header {
+  text-align: left;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-main-title {
+  font-size: 3em;
+  color: #3655a2;
+  margin-bottom: 5px;
+}
+
+.product-subtitle {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 40px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-description-block,
+.product-application-block {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+}
+
+.product-description-block:hover,
+.product-application-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.details-title {
+  font-size: 1.8em;
+  color: #3655a2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.details-text {
+  font-size: 1.15em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.application-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.application-list li {
+  font-size: 1.15em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.application-list li:last-child {
+  margin-bottom: 0;
+}
+
+.application-list li::before {
+  content: "\2022";
+  color: #3655a2;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Стили для нового блока преимуществ */
+.product-advantages-block {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.advantages-title {
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px 30px;
+}
+
+.advantages-list li {
+  font-size: 1.15em;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 25px;
+  position: relative;
+}
+
+.advantages-list li::before {
+  content: "\2713";
+  color: #3655a2;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em;
+}
+
+/* Новые стили для изображения в секции описания продукта */
+.product-image-container {
+  text-align: center; /* Центрируем изображение */
+  margin-top: 50px; /* Отступ сверху от предыдущих блоков */
+  position: relative;
+  z-index: 1;
+}
+
+.product-schematic-image {
+  max-width: 80%; /* Ограничиваем максимальную ширину изображения */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  border-radius: 10px; /* Скругленные углы */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Тень для выделения */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.product-schematic-image:hover {
+  transform: scale(1.02); /* Немного увеличиваем при наведении */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+}
+
+/* Медиа-запросы для адаптивности секции Описание продукта */
+@media (max-width: 992px) {
+  .product-description-section::before {
+    border-width: 0 200px 200px 0;
+  }
+  .product-main-title {
+    font-size: 2.5em;
+  }
+  .product-subtitle {
+    font-size: 1.3em;
+  }
+  .product-details-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  .product-description-block,
+  .product-application-block {
+    padding: 25px;
+  }
+  .details-title {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+  .details-text,
+  .application-list li {
+    font-size: 1.05em;
+  }
+  .product-advantages-block {
+    padding: 25px;
+    margin-top: 30px;
+  }
+  .advantages-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px 20px;
+  }
+  .advantages-list li {
+    font-size: 1.05em;
+  }
+  .advantages-list li::before {
+    font-size: 1.1em;
+  }
+  /* Адаптация для нового изображения */
+  .product-image-container {
+    margin-top: 40px; /* Уменьшаем отступ на планшетах */
+  }
+  .product-schematic-image {
+    max-width: 90%; /* Увеличиваем ширину на планшетах */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-description-section::before {
+    border-width: 0 150px 150px 0;
+  }
+  .product-header {
+    margin-bottom: 40px;
+  }
+  .product-main-title {
+    font-size: 2em;
+  }
+  .product-subtitle {
+    font-size: 1.1em;
+  }
+  .product-description-block,
+  .product-application-block {
+    padding: 20px;
+  }
+  .details-title {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  .details-text,
+  .application-list li {
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  .application-list li::before {
+    font-size: 0.9em;
+  }
+  .product-advantages-block {
+    padding: 20px;
+    margin-top: 25px;
+  }
+  .advantages-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .advantages-list li {
+    font-size: 1em;
+  }
+  .advantages-list li::before {
+    font-size: 1em;
+  }
+  /* Адаптация для нового изображения */
+  .product-image-container {
+    margin-top: 30px; /* Уменьшаем отступ на мобильных */
+  }
+  .product-schematic-image {
+    max-width: 95%; /* Увеличиваем ширину на мобильных */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-description-section::before {
+    border-width: 0 100px 100px 0;
+  }
+  .product-header {
+    margin-bottom: 30px;
+  }
+  .product-main-title {
+    font-size: 1.8em;
+  }
+  .product-subtitle {
+    font-size: 1em;
+  }
+  .product-description-block,
+  .product-application-block {
+    padding: 15px;
+  }
+  .details-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+  .details-text,
+  .application-list li {
+    font-size: 0.9em;
+    margin-bottom: 6px;
+  }
+  .product-advantages-block {
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .advantages-list li {
+    font-size: 0.9em;
+  }
+  /* Адаптация для нового изображения */
+  .product-image-container {
+    margin-top: 20px;
+  }
+  .product-schematic-image {
+    max-width: 100%; /* На самых маленьких экранах изображение может занимать всю ширину */
+  }
+}
+
+/* ====================================================================== */
+/* 19. Стили для секции таблицы продуктов (Product Table Section) */
+/* ====================================================================== */
+.product-table-section {
+  padding: 60px 0; /* Соответствует другим секциям */
+  background-color: #ffffff; /* Белый фон */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px; /* Отступ снизу */
+}
+
+.product-table-section .section-title {
+  margin-bottom: 40px; /* Отступ под заголовком таблицы */
+}
+
+.table-responsive {
+  overflow-x: auto; /* Позволяет таблице скроллиться по горизонтали на маленьких экранах */
+  -webkit-overflow-scrolling: touch; /* Улучшает скроллинг на iOS */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Тень для блока таблицы */
+  border-radius: 10px; /* Скругленные углы */
+}
+
+.product-table-section table {
+  width: 100%;
+  border-collapse: collapse; /* Сливаем границы ячеек */
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden; /* Обрезаем, чтобы border-radius работал с границами */
+  min-width: 600px; /* Минимальная ширина таблицы, чтобы не слишком сжималась */
+}
+
+.product-table-section th,
+.product-table-section td {
+  padding: 15px 20px; /* Увеличил padding для лучшей читаемости */
+  text-align: left;
+  border: 1px solid #e0e0e0; /* Легкие границы между ячейками */
+  vertical-align: middle; /* Выравнивание содержимого по середине */
+}
+
+.product-table-section thead th {
+  background-color: #3655a2; /* Цвет заголовков как в хедере */
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap; /* Запрет переноса текста в заголовках */
+}
+
+.product-table-section tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Чередующийся цвет строк для лучшей читаемости */
+}
+
+.product-table-section tbody tr:hover {
+  background-color: #f0f4ff; /* Подсветка строки при наведении */
+}
+
+.product-table-section td:last-child {
+  font-weight: bold; /* Выделение последней колонки (YSIN) */
+  color: #3655a2; /* Цвет текста в колонке YSIN */
+}
+
+/* Медиа-запросы для адаптивности таблицы */
+@media (max-width: 992px) {
+  .product-table-section {
+    padding: 50px 0;
+    margin-bottom: 25px;
+  }
+  .product-table-section .section-title {
+    margin-bottom: 30px;
+  }
+  .product-table-section th,
+  .product-table-section td {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-table-section {
+    padding: 40px 0;
+    margin-bottom: 20px;
+  }
+  .product-table-section .section-title {
+    font-size: 2em; /* Уменьшаем размер заголовка */
+    margin-bottom: 25px;
+  }
+  .product-table-section th,
+  .product-table-section td {
+    padding: 10px 12px;
+    font-size: 0.9em;
+  }
+  /* Для совсем маленьких экранов min-width может быть скорректирован */
+  .product-table-section table {
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-table-section {
+    padding: 30px 0;
+    margin-bottom: 15px;
+  }
+  .product-table-section .section-title {
+    font-size: 1.6em; /* Еще уменьшаем размер заголовка */
+    margin-bottom: 20px;
+  }
+  .product-table-section th,
+  .product-table-section td {
+    padding: 8px 10px;
+    font-size: 0.8em;
+  }
+  /* Еще уменьшаем min-width, чтобы таблица могла быть более компактной на очень маленьких экранах */
+  .product-table-section table {
+    min-width: 400px;
+  }
+}
+
+/* ====================================================================== */
+/* 20. Стили для секции испытаний и лабораторий (Testing and Labs Section) */
+/* ====================================================================== */
+.testing-and-labs-section {
+  padding: 60px 0;
+  background-color: #f0f2f5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.testing-and-labs-section .section-title {
+  margin-bottom: 40px;
+}
+
+/* Добавляем padding-bottom только если внутри gallery-item есть gallery-caption */
+.gallery-item:has(.gallery-caption) {
+  padding-bottom: 15px; /* Отступ снизу для подписи, если она есть */
+}
+
+/* Добавляем margin-bottom для ссылки только если после нее есть подпись */
+.gallery-item a + .gallery-caption {
+  margin-top: 15px; /* Отступ между картинкой и подписью */
+}
+
+/* Стили для gallery-caption, когда она присутствует */
+.gallery-caption {
+  background-color: transparent;
+  color: #333;
+  padding: 0 15px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  box-sizing: border-box; /* Важно для padding, чтобы не вылезало за 100% ширины */
+}
+
+/* Медиа-запросы для адаптивности этой секции */
+@media (max-width: 992px) {
+  .testing-and-labs-section {
+    padding: 50px 0;
+    margin-bottom: 25px;
+  }
+  .testing-and-labs-section .section-title {
+    margin-bottom: 30px;
+  }
+  .gallery-caption {
+    padding: 0 12px;
+    font-size: 0.9em;
+  }
+  .gallery-item:has(.gallery-caption) {
+    padding-bottom: 12px;
+  }
+  .gallery-item a + .gallery-caption {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testing-and-labs-section {
+    padding: 40px 0;
+    margin-bottom: 20px;
+  }
+  .testing-and-labs-section .section-title {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .gallery-item img {
+    height: 200px;
+  }
+  .gallery-caption {
+    padding: 0 10px;
+    font-size: 0.85em;
+  }
+  .gallery-item:has(.gallery-caption) {
+    padding-bottom: 10px;
+  }
+  .gallery-item a + .gallery-caption {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testing-and-labs-section {
+    padding: 30px 0;
+    margin-bottom: 15px;
+  }
+  .testing-and-labs-section .section-title {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  .gallery-item img {
+    height: 180px;
+  }
+  .gallery-caption {
+    padding: 0 8px;
+    font-size: 0.8em;
+  }
+  .gallery-item:has(.gallery-caption) {
+    padding-bottom: 8px;
+  }
+  .gallery-item a + .gallery-caption {
+    margin-top: 8px;
+  }
+}
+.testing-results-block {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  margin-top: 50px; /* Отступ сверху от галереи */
+  text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.results-title {
+  font-size: 1.8em;
+  color: #3655a2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.results-list {
+  list-style: none; /* Убираем стандартные маркеры списка */
+  padding: 0;
+  margin: 0;
+}
+
+.results-list li {
+  font-size: 1.15em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 5px; /* Отступ для пользовательского маркера */
+  position: relative;
+}
+
+.results-list li:last-child {
+  margin-bottom: 0;
+}
+
+.results-list li::before {
+  content: "\2022"; /* Символ маркера (пуля) */
+  color: #3655a2; /* Цвет маркера */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Медиа-запросы для нового блока результатов */
+@media (max-width: 992px) {
+  .testing-results-block {
+    padding: 30px;
+    margin-top: 40px;
+  }
+  .results-title {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+  }
+  .results-list li {
+    font-size: 1.05em;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testing-results-block {
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .results-title {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+  }
+  .results-list li {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testing-results-block {
+    padding: 20px;
+    margin-top: 25px;
+  }
+  .results-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .results-list li {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    padding-left: 20px;
+  }
+}
