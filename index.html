@@ -32,7 +32,7 @@
                 </div>
                 <div class="contact-info">
                     <a href="tel:+79291003154"><i class="fas fa-phone-alt"></i> +7 (929) 100-31-54</a>
-                    <a href="mailto:info@ysinru.ru"><i class="far fa-envelope"></i> info@ysinru.ru</a>
+                    <a href="mailto:info@ysinru.com"><i class="far fa-envelope"></i> info@ysinru.com</a>
                 </div>
             </div>
         </div>
@@ -153,18 +153,29 @@
                     <p class="form-subtitle">Чтобы узнать цену или получить бесплатный пробник, оставьте свои
                         контакты.<br> Наш
                         менеджер свяжется с вами в ближайшее время</p>
-                    <form id="contact-form" class="contact-form" action="#" method="POST">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Ф.И.О." required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <button type="submit" class="btn-submit">Отправить</button>
-                    </form>
+                    <form id="contact-form" class="contact-form" action="send_email.php" method="POST">
+						<div class="form-group">
+							<input type="text" id="name" name="name" placeholder="Ф.И.О." required="">
+						</div>
+						<div class="form-group">
+							<input type="tel" id="phone" name="phone" placeholder="Телефон" required="">
+						</div>
+						<div class="form-group">
+							<input type="email" id="email" name="email" placeholder="Email" required="">
+						</div>
+						<button type="submit" class="btn-submit">Отправить</button>
+					</form>
+
+
+                    <!-- Попап для успешной отправки -->
+                    <div id="success-popup" class="popup">
+                        <p>Ваша заявка успешно отправлена!</p>
+                    </div>
+
+                    <!-- Попап для ошибки -->
+                    <div id="error-popup" class="popup">
+                        <p>Что-то пошло не так. Пожалуйста, попробуйте еще раз.</p>
+                    </div>
                 </div>
             </section>
             <section class="delivery-section">
@@ -182,8 +193,8 @@
                     <div class="contact-info _dn">
                         <a href="tel:+79291003154" class="contact-link phone"><i class="fas fa-phone-alt"></i> +7 (929)
                             100-31-54</a>
-                        <a href="mailto:info@ysinru.ru" class="contact-link email"><i class="far fa-envelope"></i>
-                            info@ysinru.ru</a>
+                        <a href="mailto:info@ysinru.com" class="contact-link email"><i class="far fa-envelope"></i>
+                            info@ysinru.com</a>
                     </div>
 
                 </div>

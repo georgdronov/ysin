@@ -61,21 +61,55 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// email JS
-document.addEventListener('DOMContentLoaded', function () {
-    var form = document.getElementById('contact-form');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Предотвращаем стандартное поведение формы
+// Функция для отображения попапа
+function showPopup(popupId) {
+    var popup = document.getElementById(popupId);
+    popup.style.display = "block";
 
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-            .then(function (response) {
-                console.log('Письмо успешно отправлено!', response.status, response.text);
-                alert('Письмо успешно отправлено!');
-                form.reset(); // Очистить форму после успешной отправки
-            }, function (error) {
-                console.error('Ошибка при отправке письма:', error);
-                alert('Ошибка при отправке письма!');
-            });
+    // Закрытие попапа при клике на него
+    popup.addEventListener("click", function () {
+        hidePopup(popupId);
     });
+
+    // Закрытие попапа при клике вне него
+    document.addEventListener("click", function (event) {
+        if (!popup.contains(event.target)) {
+            hidePopup(popupId);
+        }
+    });
+
+    // Автоматическое исчезновение через 5 секунд
+    setTimeout(function () {
+        hidePopup(popupId);
+    }, 5000);
+}
+
+// Функция для скрытия попапа
+function hidePopup(popupId) {
+    var popup = document.getElementById(popupId);
+    popup.style.display = "none";
+}
+
+// Обработка отправки формы
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Отменяем стандартное действие формы
+
+    // Отправляем данные формы
+    var formData = new FormData(this);
+    fetch("send_email.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => {
+            if (response.ok) {
+                showPopup("success-popup"); // Показываем попап успешной отправки
+            } else {
+                showPopup("error-popup"); // Показываем попап ошибки
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            showPopup("error-popup"); // Показываем попап ошибки
+        });
 });
