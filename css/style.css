@@ -478,36 +478,6 @@ section.carousel-section {
 }
 
 /* ====================================================================== */
-/* 11. Стили для карточек товаров (Product Card) - ОБЩИЕ для Swiper и других */
-/* ====================================================================== */
-.product-card {
-  margin-bottom: 20px; /* Отступ между карточками, если они не в Grid */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: stretch;
-  align-items: center;
-  text-align: center; /* Центрируем текст внутри карточки */
-}
-
-.product-description {
-  margin-bottom: 15px;
-  flex-grow: 1;
-  font-size: 1.1em;
-  color: #555;
-}
-
-/* Примечание: height: 275px; может обрезать изображения, если они не того соотношения сторон.
-   Лучше использовать max-height или оставить height: auto; с object-fit. */
-.product-card img {
-  width: 100%; /* Картинка занимает 100% ширины родителя */
-  max-width: 340px; /* Ограничение из ваших стилей */
-  height: 275px; /* Фиксированная высота для единообразия */
-  object-fit: cover; /* Обрезает изображение, чтобы оно вписалось в заданные размеры */
-  border-radius: 5px;
-}
-
-/* ====================================================================== */
 /* 12. Попапы */
 /* ====================================================================== */
 .popup {
@@ -1824,4 +1794,265 @@ section.carousel-section {
     margin-bottom: 5px;
     padding-left: 20px;
   }
+}
+
+/* ====================================================================== */
+/* 22. Стили для секции "Виды инъекционной гидроизоляции" (Светлый список, 2 колонки) */
+/* ====================================================================== */
+.injection-types-section.simple-list-layout {
+    padding: 80px 0;
+    background-color: #ffffff; /* Светлый фон всей секции */
+    color: #333333; /* Темный текст для контраста на светлом фоне */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.injection-types-section.simple-list-layout .section-title {
+    color: #333333; /* Темный заголовок */
+    margin-bottom: 40px;
+    font-size: 2.8em;
+}
+
+.injection-types-section.simple-list-layout .section-intro-text {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666666; /* Более мягкий темный цвет для вводного текста */
+}
+
+.injection-types-columns-wrapper {
+    display: flex; /* Делаем колонки рядом */
+    justify-content: center; /* Центрируем колонки */
+    gap: 40px; /* Отступ между колонками */
+    max-width: 1000px; /* Максимальная ширина всего блока с колонками */
+    margin: 0 auto;
+    padding: 0 20px; /* Горизонтальные отступы для контента */
+    box-sizing: border-box; /* Учитываем паддинг в ширине */
+}
+
+.injection-type-column {
+    flex: 1; /* Колонки занимают равное пространство */
+    min-width: 300px; /* Минимальная ширина колонки */
+    max-width: 45%; /* Максимальная ширина, чтобы уместились две рядом */
+    text-align: left; /* Текст внутри колонок выравнивается по левому краю */
+}
+
+/* Стили для основных заголовков категорий (Полиуретановая, Акриловая) */
+.type-header {
+    display: block;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #0056b3;
+    padding: 10px 0;
+    border-bottom: 2px solid #eeeeee;
+    margin-bottom: 25px; /* Отступ от заголовка до подсписка */
+    text-transform: uppercase;
+}
+
+/* Общие стили для всех списков (основных и вложенных) */
+.sub-types-list, .nested-sub-types-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стили для элементов списка первого уровня (Четырехкомпонентная, Вспениваемая, Не вспениваемая) */
+.sub-types-list > li {
+    margin-bottom: 18px;
+    position: relative;
+    padding-left: 25px; /* Отступ для маркера */
+    color: #444444;
+    font-size: 1.15em;
+    line-height: 1.5;
+}
+
+.sub-types-list > li:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для заголовков подвидов (Вспениваемая, Не вспениваемая) */
+.type-header-sub {
+    display: block; /* Важно, чтобы маркеры работали правильно с текстом */
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #007bff;
+    border-bottom: 1px dotted #dddddd; /* Пунктирная линия */
+    margin-bottom: 15px;
+    padding-bottom: 5px; /* Небольшой паддинг снизу для линии */
+    text-transform: none; /* Не заглавными */
+    line-height: 1.2; /* Уменьшим межстрочный интервал для заголовков */
+}
+
+/* Стили для вложенных списков (Однокомпонентная, Двухкомпонентная, Эластичная, Жёсткая) */
+.nested-sub-types-list {
+    padding-left: 25px; /* Дополнительный отступ для глубокой вложенности */
+    margin-top: 15px; /* Отступ от родительского заголовка подвида */
+}
+
+.nested-sub-types-list > li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px; /* Отступ для маркера */
+    color: #555555;
+    font-size: 1.05em;
+    line-height: 1.4;
+}
+
+.nested-sub-types-list > li:last-child {
+    margin-bottom: 0;
+}
+
+/* Декоративные круглые маркеры */
+.sub-types-list > li::before,
+.nested-sub-types-list > li::before {
+    content: '•'; /* Круглый маркер */
+    color: #007bff; /* Цвет маркера */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em; /* Размер маркера */
+    line-height: inherit;
+    font-weight: bold;
+}
+
+
+
+/* --- Адаптивность --- */
+@media (max-width: 992px) {
+    .injection-types-section.simple-list-layout {
+        padding: 60px 0;
+    }
+    .injection-types-section.simple-list-layout .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .injection-types-section.simple-list-layout .section-intro-text {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .injection-types-columns-wrapper {
+        flex-direction: column; /* Колонки перестраиваются в столбец */
+        gap: 50px; /* Увеличим отступ между блоками в мобильной версии */
+        padding: 0 15px; /* Уменьшим горизонтальный паддинг */
+    }
+    .injection-type-column {
+        max-width: 100%; /* Занимает всю доступную ширину */
+    }
+
+    /* Мобильный порядок: Акриловая прыгает вниз */
+    .injection-type-column:nth-child(2) { /* Это "Акриловая" */
+        order: 1; /* Перемещаем Акриловую ниже (1 - это первый элемент после обычных) */
+    }
+    .injection-type-column:nth-child(1) { /* Это "Полиуретановая" */
+        order: 0; /* Оставляем Полиуретановую первой */
+    }
+
+
+    .type-header {
+        font-size: 1.6em; /* Увеличенный шрифт на мобильных */
+        margin-bottom: 20px;
+    }
+    .sub-types-list > li {
+        font-size: 1.05em; /* Читабельный шрифт */
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    .type-header-sub {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+    }
+    .nested-sub-types-list {
+        padding-left: 20px;
+        margin-top: 12px;
+    }
+    .nested-sub-types-list > li {
+        font-size: 0.95em; /* Читабельный шрифт */
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    .sub-types-list > li::before,
+    .nested-sub-types-list > li::before {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .injection-types-section.simple-list-layout {
+        padding: 50px 0;
+    }
+    .injection-types-section.simple-list-layout .section-title {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .injection-types-columns-wrapper {
+        gap: 40px;
+        padding: 0 10px;
+    }
+    .type-header {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    .sub-types-list > li {
+        font-size: 1em;
+        padding-left: 18px;
+        margin-bottom: 12px;
+    }
+    .type-header-sub {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .nested-sub-types-list {
+        padding-left: 18px;
+        margin-top: 10px;
+    }
+    .nested-sub-types-list > li {
+        font-size: 0.9em;
+        padding-left: 18px;
+        margin-bottom: 8px;
+    }
+    .sub-types-list > li::before,
+    .nested-sub-types-list > li::before {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .injection-types-section.simple-list-layout {
+        padding: 40px 0;
+    }
+    .injection-types-section.simple-list-layout .section-title {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .injection-types-columns-wrapper {
+        gap: 30px;
+        padding: 0 5px; /* Очень маленькие горизонтальные отступы */
+    }
+    .type-header {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+    .sub-types-list > li {
+        font-size: 0.95em;
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+    .type-header-sub {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+    .nested-sub-types-list {
+        padding-left: 15px;
+        margin-top: 8px;
+    }
+    .nested-sub-types-list > li {
+        font-size: 0.85em;
+        padding-left: 15px;
+        margin-bottom: 6px;
+    }
+    .sub-types-list > li::before,
+    .nested-sub-types-list > li::before {
+        font-size: 0.9em;
+    }
 }
