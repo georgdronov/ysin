@@ -907,7 +907,7 @@ section.carousel-section {
 
 .gallery-item img {
   width: 100%;
-  height: 250px; /* Фиксированная высота для единообразия */
+  height: 30rem; /* Фиксированная высота для единообразия */
   object-fit: cover;
   border-radius: 8px;
   transition: opacity 0.3s ease;
@@ -1750,7 +1750,7 @@ section.carousel-section {
     margin-bottom: 25px;
   }
   .gallery-item img {
-    height: 200px;
+    height: 38rem;
   }
   .gallery-caption {
     padding: 0 10px;
@@ -2228,4 +2228,7 @@ section.carousel-section {
     text-align: center; /* Центрируем, если перенос случился */
     display: block; /* Снова блочный, чтобы занимал всю ширину для центрирования */
   }
+}
+.dn {
+  display: none;
 }
